@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'avant';
+  src: url('./fonts/avant.ttf');
+}
+
+@font-face {
+  font-family: 'sohne';
+  src: url('./fonts/TestSohne-Kraftig-BF663d89cd37e26.otf');
+}
+
+::-webkit-scrollbar{
+  display: none;
+}

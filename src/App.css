@@ -1,0 +1,7 @@
+body{
+  background-color: black;
+  color: rgb(255, 255, 255);
+  font-family: 'avant';
+  width: 100vw;
+  overflow-x: hidden;
+}
