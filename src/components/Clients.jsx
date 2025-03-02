@@ -45,7 +45,7 @@ const LargeClientScroller = () => {
   const [speed] = useState(30); // Animation speed in seconds
 
   return (
-    <div className="flex justify-center py-16 overflow-hidden">
+    <div className="flex justify-center py-16 overflow-hidden" style={{marginBottom:'20vh'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold y-10">Our Trusted Clients</h2>

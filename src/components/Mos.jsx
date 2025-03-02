@@ -31,15 +31,14 @@ function Mos() {
                     {
                         [...Array(3)].map((_,i)=>{
                             return <textPath key={i} ref={ref=>texts.current[i]=ref} href='#curve' startOffset={i*40+'%'}>
-                            Underblu coffee by southwave
-                        </textPath>
+ A blend of boldness and creativity                        </textPath>
                         })
                     }
                 </text>
             </svg>
             <div className="flex flex-col w-full justify-center items-center">
-                <p             data-aos="fade-up"  className='text-3xl sm:text-5xl text-center font-ed text-swblue sm:mt-[-300px] mt-[-220px]'>Brewing today  <br /> & building tomorrow</p>
-                <p className='text-sm text-center font-ita pt-[50px]'>inspired by the ocean</p>
+                <p             data-aos="fade-up"  className='text-3xl sm:text-5xl text-center font-ed text-swblue sm:mt-[-300px] mt-[-220px]'>Bringing vision to life  <br /> One frame at a time </p>
+                <p className='text-sm text-center font-ita pt-[50px]'>Recreating craftsmanship</p>
                             <motion.img src="roundedlogo.png"
              className='h-[15vh] opacity-[0.5]  p-2' alt=""
              animate={{rotate:360}}
