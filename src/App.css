@@ -5,3 +5,25 @@ body{
   width: 100vw;
   overflow-x: hidden;
 }
+
+.cursor{
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 2px solid rgb(248, 245, 245);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+.cursor2{
+  height: 2px;
+  width: 2px;
+  border-radius: 50%;
+  background-color:  rgb(243, 241, 241);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
