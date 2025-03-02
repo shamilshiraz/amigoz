@@ -40,7 +40,7 @@ const Card = ({ card }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[450px] w-[450px] overflow-hidden bg-black  "
+      className="group relative border rounded-3xl h-[450px] w-[450px] overflow-hidden bg-black  "
     >
       {/* ✅ Fullscreen iframe video */}
       <iframe
@@ -57,29 +57,30 @@ const Card = ({ card }) => {
 export default Example;
 
 const cards = [
-  {
-    title: "Title 1",
-    id: 1,
-    iframe: "https://drive.google.com/file/d/1Z_NpVEWszPdX-hlWtREy1Q5bwbiydQdA/preview",
-  },
-  {
-    title: "Title 2",
-    id: 2,
-    iframe: "https://drive.google.com/file/d/1Z_NpVEWszPdX-hlWtREy1Q5bwbiydQdA/preview",
-  },
-  {
-    title: "Title 3",
-    id: 3,
-    iframe: "https://drive.google.com/file/d/1Z_NpVEWszPdX-hlWtREy1Q5bwbiydQdA/preview",
-  },
-  {
-    title: "Title 4",
-    id: 4,
-    iframe: "https://drive.google.com/file/d/1Z_NpVEWszPdX-hlWtREy1Q5bwbiydQdA/preview",
-  },
-  {
-    title: "Title 5",
-    id: 5,
-    iframe: "https://drive.google.com/file/d/1Z_NpVEWszPdX-hlWtREy1Q5bwbiydQdA/preview",
-  },
-];
+    {
+      title: "Title 1",
+      id: 1,
+      iframe: "https://drive.google.com/file/d/1tkUJ-4DVex8IrrARpUaS1pj2fLr8VDjR/preview",
+    },
+    {
+      title: "Title 2",
+      id: 2,
+      iframe: "https://drive.google.com/file/d/11K99_m74yzKJPq1UXYuLCr9Cz6E5S_W0/preview",
+    },
+    {
+      title: "Title 3",
+      id: 3,
+      iframe: "https://drive.google.com/file/d/1N08bEPONhczkULrHda5PsigwSCLVG6mz/preview",
+    },
+    {
+      title: "Title 4",
+      id: 4,
+      iframe: "https://drive.google.com/file/d/1gnkWAuR88xBWfrt3GWmF1vgSueSCDU-_/preview",
+    },
+    {
+      title: "Title 5",
+      id: 5,
+      iframe: "https://drive.google.com/file/d/1Z_NpVEWszPdX-hlWtREy1Q5bwbiydQdA/preview",
+    },
+  ];
+  
