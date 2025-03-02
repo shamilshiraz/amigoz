@@ -1,22 +1,24 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from 'react';
+import { motion } from 'framer-motion';
 
 function Hero() {
   // Array of image paths for different scribble designs
   const scribbleImages = [
-    "s1.png", "s2.png", "s3.png", "s8.png", "s5.png", "s6.png"
-  ]
+    "s1.png", "s2.png", "s3.png", "s8.png", "s5.png", "s6.png", "s7.png", "s9.png"
+  ];
 
   // Predefined positions for better scattering
   const positions = [
     { top: "20%", left: "10%" },
-    { top: "5%", left: "50%" },
+    { top: "5%", left: "40%" },
     { top: "27%", left: "75%" },
-    { top: "55%", left: "85%" },
+    { top: "70%", left: "75%" },
     { top: "80%", left: "45%" },
-    { top: "65%", left: "15%" }
-  ]
-  
+    { top: "65%", left: "15%" },
+    { top: "0%", left: "70%" }, // Position for new image s7.png
+    { top: "50%", left: "20%" }  // Position for new image s9.png
+  ];
+
   return (
     <div className='relative bg-[url(./bg.png)] bg-cover h-[90vh] w-[100vw] bg-black overflow-hidden flex flex-col items-center justify-center'>
       {/* PNG Scribbles */}
@@ -49,7 +51,7 @@ function Hero() {
         amigoz
       </motion.h1>
     </div>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

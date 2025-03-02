@@ -11,6 +11,7 @@ import Stack from './components/Stack'
 import Example from './components/Horizontal'
 import Mos from './components/Mos'
 import Footer from './components/Footer'
+import LargeClientScroller from './components/Clients'
 
 function App() {
   // Set up Lenis on component mount
@@ -54,8 +55,8 @@ function App() {
       <Intro/>
       <Stack/>
       <Example/>
+      <LargeClientScroller/>
       <Mos/>
-      <Footer/>
     </div>
   )
 }

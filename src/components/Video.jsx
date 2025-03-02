@@ -4,7 +4,7 @@ const VideoGrid = () => {
   return (
     <div className="flex flex-col md:flex-row h-screen w-full">
       {/* Mobile: 4x1 (vertical stack) or 2x2 grid, Desktop: 1x4 (horizontal row) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 w-full h-full gap-0">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 w-full h-full gap-0">
         {/* Video 1 */}
         <div className="bg-black flex items-center justify-center h-full">
           <div className="w-full h-full bg-gray-800 relative">

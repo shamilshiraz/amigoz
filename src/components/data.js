@@ -8,33 +8,33 @@ export const services=[
        color:'#ffffff'
     },
     {
-        title:'Photography',
+        title:'Videography',
         description:'Some words to describe the photography',
-        image:'./bg.png',
+        image:'./video.jpg',
         color:'#ffffff'
      },
      {
-        title:'Photography',
+        title:'Event coverage',
         description:'Some words to describe the photography',
-        image:'./bg.png',
+        image:'./event.jpg',
         color:'#ffffff'
      },
      {
-        title:'Photography',
+        title:'Video production',
         description:'Some words to describe the photography',
-        image:'./bg.png',
+        image:'./production.jpg',
         color:'#ffffff'
      },
      {
-        title:'Photography',
+        title:'Podcasts',
         description:'Some words to describe the photography',
-        image:'./bg.png',
+        image:'./podcasting.jpg',
         color:'#ffffff'
      },
      {
-        title:'Photography',
+        title:'Studio rentals',
         description:'Some words to describe the photography',
-        image:'./bg.png',
+        image:'./studio.jpg',
         color:'#ffffff'
      },
     
