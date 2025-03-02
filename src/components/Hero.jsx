@@ -20,7 +20,7 @@ function Hero() {
   ];
 
   return (
-    <div className='relative bg-[url(./bg.png)] bg-cover h-[90vh] w-[100vw] bg-black overflow-hidden flex flex-col items-center justify-center'>
+    <div className='relative bg-[url(../bg.png)] bg-cover h-[90vh] w-[100vw] bg-black overflow-hidden flex flex-col items-center justify-center'>
       {/* PNG Scribbles */}
       <div className="absolute inset-0 pointer-events-none">
         {scribbleImages.map((image, index) => (
