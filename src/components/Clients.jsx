@@ -3,29 +3,27 @@ import React, { useState } from 'react';
 const LargeClientScroller = () => {
   // Sample larger client list - replace with your actual clients
   const clients = [
-    { id: 1, name: "Acme Inc.", industry: "Manufacturing" },
-    { id: 2, name: "Globex Corp", industry: "Technology" },
-    { id: 3, name: "Stark Industries", industry: "Defense" },
-    { id: 4, name: "Wayne Enterprises", industry: "Conglomerate" },
-    { id: 5, name: "Cyberdyne Systems", industry: "Technology" },
-    { id: 6, name: "Umbrella Corporation", industry: "Pharmaceuticals" },
-    { id: 7, name: "Massive Dynamic", industry: "Research" },
-    { id: 8, name: "Oscorp Industries", industry: "Biochemical" },
-    { id: 9, name: "Aperture Science", industry: "Research" },
-    { id: 10, name: "InGen", industry: "Bioengineering" },
-    { id: 11, name: "Weyland-Yutani", industry: "Space Exploration" },
-    { id: 12, name: "Tyrell Corporation", industry: "Robotics" },
-    { id: 13, name: "Soylent Corporation", industry: "Food Processing" },
-    { id: 14, name: "Omni Consumer Products", industry: "Consumer Goods" },
-    { id: 15, name: "Initech", industry: "Software" },
-    { id: 16, name: "Gekko & Co", industry: "Finance" },
-    { id: 17, name: "Rekall", industry: "Tourism" },
-    { id: 18, name: "Lacuna Inc.", industry: "Medical Services" },
-    { id: 19, name: "Wonka Industries", industry: "Confectionery" },
-    { id: 20, name: "Bubba Gump", industry: "Seafood" },
-    { id: 21, name: "Los Pollos Hermanos", industry: "Fast Food" },
-    { id: 22, name: "Duff Beer", industry: "Beverages" }
-  ];
+    { id: 1, name: "HONOR", industry: "Technology", logo: "https://upload.wikimedia.org/wikipedia/commons/0/02/Honor-logo.png" },
+    { id: 2, name: "Microsoft", industry: "Technology", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
+    { id: 3, name: "Formula 1", industry: "Sports", logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/F1_logo.svg" },
+    { id: 4, name: "Angel One", industry: "Financial Services", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Angel_One_logo.svg" },
+    { id: 5, name: "Weatherford", industry: "Oil & Gas", logo: "https://www.weatherford.com/globalassets/logo/weatherford-logo.png" },
+    { id: 6, name: "Dubai Police", industry: "Law Enforcement", logo: "https://upload.wikimedia.org/wikipedia/en/6/6d/Dubai_Police_Logo.svg" },
+    { id: 7, name: "TotalEnergies", industry: "Energy", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1e/TotalEnergies_logo.svg" },
+    { id: 8, name: "Radiant Filters", industry: "Filtration", logo: "https://radiantfilters.com/images/logo.png" },
+    { id: 9, name: "Quadra Wealth", industry: "Finance", logo: "https://quadrawealth.com/wp-content/uploads/2022/01/Quadra-Wealth-Logo.png" },
+    { id: 10, name: "Team Activators", industry: "Consulting", logo: "" }, // No public logo found
+    { id: 11, name: "Enagic", industry: "Health & Wellness", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Enagic_Logo.png" },
+    { id: 12, name: "Emirates Home Nursing", industry: "Healthcare", logo: "https://www.emirateshomenursing.ae/themes/emirates_home_nursing/images/logo.svg" },
+    { id: 13, name: "Intwo", industry: "Technology", logo: "https://intwo.cloud/wp-content/uploads/2021/10/intwo_logo.svg" },
+    { id: 14, name: "Bevatel", industry: "Communications", logo: "https://www.bevatel.com/wp-content/uploads/2020/10/Bevatel.png" },
+    { id: 15, name: "Makruzz", industry: "Travel", logo: "https://makruzz.com/images/makruzz-logo.png" },
+    { id: 16, name: "Amanzada Perfumes", industry: "Fragrance", logo: "" }, // No public logo found
+    { id: 17, name: "Nautika", industry: "Fashion", logo: "" }, // No public logo found
+    { id: 18, name: "Sawa International", industry: "Manufacturing", logo: "" }, // No public logo found
+    { id: 19, name: "NOT", industry: "Retail", logo: "" } // No public logo found
+];
+
 
   // Generate random colors for each client (for visual variety)
   const colors = [
