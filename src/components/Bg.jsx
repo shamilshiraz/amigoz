@@ -11,8 +11,8 @@ const BulgeTextEffect = ({ text = "amigoz" }) => {
     let textCanvas, textCtx;
     let mouseX = 0, mouseY = 0;
     let targetX = 0, targetY = 0;
-    let strength = 40; // Bulge strength
-    let radius = 100;  // Bulge radius
+    let strength = 50; // Bulge strength
+    let radius = 50;  // Bulge radius
     let textImg;
     let animationFrameId;
     let pixelRatio = Math.min(window.devicePixelRatio, 2); // Limit max pixel ratio for performance
@@ -64,7 +64,6 @@ const BulgeTextEffect = ({ text = "amigoz" }) => {
       textCanvas.style.height = `${height}px`;
       
       // Set actual size in memory (scaled for pixel ratio)
-      // Use a slightly lower resolution for performance if needed
       const scale = pixelRatio;
       canvas.width = Math.floor(width * scale);
       canvas.height = Math.floor(height * scale);
@@ -108,22 +107,15 @@ const BulgeTextEffect = ({ text = "amigoz" }) => {
       if (timestamp - lastFrameTime >= frameInterval) {
         lastFrameTime = timestamp;
         
-        // Enhanced smooth mouse following with variable easing
+        // Smooth mouse following with reduced interpolation
         const dx = mouseX - targetX;
         const dy = mouseY - targetY;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        // Adaptive interpolation - faster when cursor is moving quickly
-        const easing = Math.min(0.2, 0.05 + (distance / 2000));
+        // Adjusted easing to make the movement less laggy
+        const easing = Math.min(0.1, 0.05 + (distance / 1000)); // Reduced interpolation value for smoother movement
         targetX += dx * easing;
         targetY += dy * easing;
-        
-        // If no mouse interaction, create automatic movement
-        if (mouseX === 0 && mouseY === 0) {
-          const time = timestamp * 0.001;
-          targetX = window.innerWidth / 2 + Math.sin(time) * 100;
-          targetY = window.innerHeight / 2 + Math.cos(time * 0.5) * 100;
-        }
         
         // Clear canvas
         ctx.clearRect(0, 0, canvas.width / pixelRatio, canvas.height / pixelRatio);
@@ -155,7 +147,6 @@ const BulgeTextEffect = ({ text = "amigoz" }) => {
       
       // For each pixel - consider using a skip factor for better performance
       const skipFactor = 1; // No skip for highest quality, increase for better performance
-      
       for (let y = 0; y < scaledHeight; y += skipFactor) {
         for (let x = 0; x < scaledWidth; x += skipFactor) {
           // Calculate distance from mouse

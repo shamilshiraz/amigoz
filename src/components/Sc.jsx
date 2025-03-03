@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 const SemicircleDome = () => {
-  const text = "Amigoz is a creative hub where innovation meets passion. A place to explore, create, and connect.";
+  const text = "We are the film production company, shaping unique stories that truly resonate.";
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" }); // Starts animation when entering the viewport
   const controls = useAnimation();
@@ -39,7 +39,7 @@ const SemicircleDome = () => {
             <motion.img 
               src="/cam.png" 
               alt="Floating Camera"
-              className="h-[15vh] sm:h-[30vh] object-contain"
+              className="h-[15vh] sm:h-[40vh] object-contain"
               initial="hidden"
               animate={controls}
               variants={{

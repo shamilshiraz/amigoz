@@ -5,7 +5,7 @@ const Example = () => {
   return (
     <div className="" style={{ marginTop: "10vh" }}>
       <div className="flex h-8 items-center justify-center">
-        <span className="font-semibold uppercase">Featured projects</span>
+        <span className="font-semibold uppercase sticky top-[10vh] left-0 text-4xl">Featured projects</span>
       </div>
       <HorizontalScrollCarousel />
       <div className="flex h-48 items-center justify-center">
@@ -94,7 +94,7 @@ const Card = ({ card }) => {
     <div
       ref={cardRef}
       key={card.id}
-      className="group relative border rounded-[90px] h-[450px] w-[450px] overflow-hidden bg-black cursor-none"
+      className="group relative rounded-[90px] h-[450px] w-[450px] overflow-hidden bg-black cursor-none"
       onClick={() => setIsPlaying(true)}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setShowCursor(true)}
@@ -150,45 +150,46 @@ export default Example;
 
 const cards = [
   {
-    title: "Not a space",
-    id: 1,
-    iframe: "https://drive.google.com/file/d/1tkUJ-4DVex8IrrARpUaS1pj2fLr8VDjR/preview",
-    thumbnail: "nas.png",
-  },
-  {
-    title: "Barber bell",
-    id: 2,
-    iframe: "https://drive.google.com/file/d/11K99_m74yzKJPq1UXYuLCr9Cz6E5S_W0/preview",
-    thumbnail: "./barber.png",
-  },
-  {
     title: "Honor",
-    id: 3,
+    id: 1,
     iframe: "https://drive.google.com/file/d/1N08bEPONhczkULrHda5PsigwSCLVG6mz/preview",
     thumbnail: "./honor.png",
   },
   {
     title: "Dubai police",
-    id: 4,
+    id: 2,
     iframe: "https://drive.google.com/file/d/1gnkWAuR88xBWfrt3GWmF1vgSueSCDU-_/preview",
     thumbnail: "./dbp.png",
   },
   {
     title: "F1",
-    id: 5,
+    id: 3,
     iframe: "https://drive.google.com/file/d/1qXHsVyJctRkxOWbBvAjgA3M1nDVIK86e/preview",
     thumbnail: "./f1.png",
   },
   {
     title: "Squid games x Coke studio",
-    id: 6,
+    id: 4,
     iframe: "https://drive.google.com/file/d/1qXHsVyJctRkxOWbBvAjgA3M1nDVIK86e/preview",
     thumbnail: "./sqg.png",
   },
   {
-    title: "F1",
+    title: "Not a space",
+    id: 5,
+    iframe: "https://drive.google.com/file/d/1tkUJ-4DVex8IrrARpUaS1pj2fLr8VDjR/preview",
+    thumbnail: "nas.png",
+  },
+  {
+    title: "Barber bell",
+    id: 6,
+    iframe: "https://drive.google.com/file/d/11K99_m74yzKJPq1UXYuLCr9Cz6E5S_W0/preview",
+    thumbnail: "./barber.png",
+  },
+  {
+    title: "Amanzada",
     id: 7,
-    iframe: "https://drive.google.com/file/d/1qXHsVyJctRkxOWbBvAjgA3M1nDVIK86e/preview",
-    thumbnail: "./f1.png",
+    iframe: "https://drive.google.com/drive/folders/1Bxm68jWxO-1oqbRcBOqyAM6vHEBP4tNl", // Updated iframe URL
+    thumbnail: "./azd.png",
   }
+  
 ];

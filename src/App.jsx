@@ -12,6 +12,7 @@ import Example from './components/Horizontal'
 import Mos from './components/Mos'
 import Footer from './components/Footer'
 import LargeClientScroller from './components/Clients'
+import BulgeTextEffect from './components/Bg'
 
 function App() {
   // Set up Lenis on component mount
@@ -49,6 +50,7 @@ function App() {
     <div>
       <Nav/>
       <Hero/>
+      {/* <BulgeTextEffect/> */}
       <Page/>
       <VideoGrid/>
       {/* <SVGUnmaskingEffect/> */}

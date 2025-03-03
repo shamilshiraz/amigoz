@@ -6,24 +6,29 @@ body{
   overflow-x: hidden;
 }
 
-.cursor{
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  border: 2px solid rgb(248, 245, 245);
+/* Custom Cursor */
+.cursor-dot,
+.cursor-ring {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 20;
-}
-.cursor2{
-  height: 2px;
-  width: 2px;
   border-radius: 50%;
-  background-color:  rgb(243, 241, 241);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 20;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
 }
+
+.cursor-dot {
+  width: 8px;  /* Small cursor dot */
+  height: 8px;
+  background-color: white;
+  opacity: 0.8;
+}
+
+.cursor-ring {
+  width: 40px; /* Larger cursor ring */
+  height: 40px;
+  border: 2px solid white;
+  opacity: 0.3;
+  transition: transform 0.2s ease-out;
+}
+
 
