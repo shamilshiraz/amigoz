@@ -13,6 +13,10 @@ import Mos from './components/Mos'
 import Footer from './components/Footer'
 import LargeClientScroller from './components/Clients'
 import BulgeTextEffect from './components/Bg'
+import Exmmple from './components/Hero'
+import TextSkewAnimation from './components/Try'
+import TextEx from './components/Try'
+import Scene from './components/Scene'
 
 function App() {
   // Set up Lenis on component mount
@@ -49,9 +53,11 @@ function App() {
   return (
     <div>
       <Nav/>
-      <Hero/>
+      <Scene/>
+      {/* <TextEx/> */}
+      <Exmmple/>
       {/* <BulgeTextEffect/> */}
-      <Page/>
+      {/* <Page/> */}
       <VideoGrid/>
       {/* <SVGUnmaskingEffect/> */}
       <Intro/>

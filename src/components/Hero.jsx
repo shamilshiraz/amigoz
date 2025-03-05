@@ -1,57 +1,89 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion } from "framer-motion";
 
-function Hero() {
-  // Array of image paths for different scribble designs
-  const scribbleImages = [
-    "s1.png", "s2.png", "s3.png", "s8.png", "s5.png", "s6.png", "s7.png", "s9.png"
-  ];
-
-  // Predefined positions for better scattering
-  const positions = [
-    { top: "20%", left: "10%" },
-    { top: "5%", left: "40%" },
-    { top: "27%", left: "75%" },
-    { top: "70%", left: "75%" },
-    { top: "80%", left: "45%" },
-    { top: "65%", left: "15%" },
-    { top: "0%", left: "70%" }, // Position for new image s7.png
-    { top: "50%", left: "20%" }  // Position for new image s9.png
-  ];
-
+const Exmmple = () => {
   return (
-    <div className='relative bg-[url(../bg.png)] bg-cover h-[90vh] w-[100vw] bg-black overflow-hidden flex flex-col items-center justify-center'>
-      {/* PNG Scribbles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {scribbleImages.map((image, index) => (
-          <motion.img
-            key={index}
-            src={image}
-            alt="scribble"
-            className="absolute"
-            style={{
-              top: positions[index].top,
-              left: positions[index].left,
-              width: "100px",
-              height: "100px",
-            }}
-            animate={{ x: [0, Math.random() * 6 - 3], y: [0, Math.random() * 6 - 3] }} // Adjust movement intensity here
-            transition={{ duration: 0.2, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }} // Adjust duration here
-          />
-        ))}
-      </div>
-      
-      {/* Main Content */}
-      <motion.h1 
-        className="text-white font-[avant] text-8xl sm:text-[11rem] font-bold mb-10 z-10"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+    <section className="grid h-[100vh] place-content-center p-12">
+      <FloatingPhone />
+    </section>
+  );
+};
+
+const FloatingPhone = () => {
+  return (
+    <div
+      style={{
+        transformStyle: "preserve-3d",
+        transform: "rotateY(-30deg) rotateX(15deg)",
+      }}
+      className="rounded-[24px] bg-[#1e1e1e] border"
+    >
+      <motion.div
+        initial={{
+          transform: "translateZ(8px) translateY(-2px)",
+        }}
+        animate={{
+          transform: "translateZ(32px) translateY(-8px)",
+        }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "mirror",
+          duration: 2,
+          ease: "easeInOut",
+        }}
+        className="relative h-[60vh] w-[80vw] rounded-[24px] border-2 border-b-4 border-r-4 border-white border-l-neutral-200 border-t-neutral-200 bg-neutral-900 p-1 pl-[3px] pt-[3px]"
       >
-        amigoz
-      </motion.h1>
+        <Screen />
+      </motion.div>
     </div>
   );
-}
+};
 
-export default Hero;
+const Screen = () => {
+  const [displayText, setDisplayText] = useState('');
+  const fullText = "We are the film production company, shaping unique stories that truly resonate.";
+
+  useEffect(() => {
+    let isMounted = true;
+    let currentIndex = 0;
+
+    const typeNextCharacter = () => {
+      if (isMounted && currentIndex < fullText.length) {
+        setDisplayText(prev => prev + fullText[currentIndex]);
+        currentIndex++;
+        setTimeout(typeNextCharacter, 50); // Adjust typing speed here
+      }
+    };
+
+    typeNextCharacter();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  return (
+    <div className="relative z-0 grid h-full w-full place-content-center overflow-hidden rounded-[20px] bg-white p-4">
+      <motion.p 
+        className="text-black text-center text-3xl sm:text-7xl font-bold"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        {displayText}
+        <motion.span
+          animate={{ opacity: [0, 1] }}
+          transition={{
+            duration: 0.7,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
+          className="inline-block ml-1 w-2 bg-black"
+        >
+          |
+        </motion.span>
+      </motion.p>
+    </div>
+  );
+};
+
+export default Exmmple;

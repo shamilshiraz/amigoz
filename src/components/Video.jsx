@@ -46,7 +46,7 @@ const VideoGrid = () => {
               loop 
               muted
             >
-              <source src="/vid1.mp4" type="video/mp4" />
+              <source src="/sqg.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             
@@ -62,7 +62,7 @@ const VideoGrid = () => {
               loop 
               muted
             >
-              <source src="./vid2.mp4" type="video/mp4" />
+              <source src="./nuash.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
