@@ -44,26 +44,6 @@ const Card = ({ card }) => {
   const cardRef = useRef(null);
   const timeoutRef = useRef(null);
 
-  // Handle video timeout - switch back to thumbnail after 5 seconds of inactivity
-  useEffect(() => {
-    if (isPlaying && !isActive) {
-      // Clear any existing timeout
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-      
-      // Set a new timeout
-      timeoutRef.current = setTimeout(() => {
-        setIsPlaying(false);
-      }, 5000);
-    }
-    
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [isPlaying, isActive]);
 
   // Handle mouse movement
   const handleMouseMove = (e) => {
