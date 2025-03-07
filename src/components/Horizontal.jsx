@@ -133,7 +133,7 @@ const cards = [
     title: "Honor",
     id: 1,
     iframe: "https://drive.google.com/file/d/1N08bEPONhczkULrHda5PsigwSCLVG6mz/preview",
-    thumbnail: "./honor.png",
+    thumbnail: "./honor.jpg",
   },
   {
     title: "Dubai police",
@@ -160,16 +160,17 @@ const cards = [
     thumbnail: "nas.png",
   },
   {
-    title: "Barber bell",
+    title: "Wafa ramp",
     id: 6,
-    iframe: "https://drive.google.com/file/d/11K99_m74yzKJPq1UXYuLCr9Cz6E5S_W0/preview",
-    thumbnail: "./barber.png",
+    iframe: "https://drive.google.com/file/d/1JmI-gtudVK4vk1t0shdS2eKt8A9bvfVs/preview",
+    thumbnail: "./wafa.png",
   },
   {
-    title: "Amanzada",
+    title: "Birthday",
     id: 7,
-    iframe: "https://drive.google.com/drive/folders/1Bxm68jWxO-1oqbRcBOqyAM6vHEBP4tNl", // Updated iframe URL
-    thumbnail: "./azd.png",
+    iframe: "https://drive.google.com/file/d/1h1yf955V2o9yZHik0Soe7hCqcG55EFPk/preview",
+    thumbnail: "./bday.png",
   }
+  
   
 ];

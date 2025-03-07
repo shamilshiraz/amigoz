@@ -1,89 +1,79 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef } from 'react';
 
-const Exmmple = () => {
+function Word() {
+  const element = useRef(null);
+  
+  // Scroll progress tracking
+  const { scrollYProgress } = useScroll({
+    target: element,
+    offset: ['start center', 'end 90vh'], 
+  });
+  
+  // Text about Amigoz video production studio
+  const value = "AMIGOZ creates stunning visual content with cinematic storytelling innovative editing techniques and creative direction that transforms your vision into reality";
+  
+  // Split text into words
+  const words = value.split(' ');
+  
+  // Calculate animation ranges
+  const calculateRange = (index, total) => {
+    const rangeSize = 0.8 / total;
+    const start = index * rangeSize;
+    const end = start + (rangeSize * 1.5);
+    return [start, Math.min(end, 1)];
+  };
+  
   return (
-    <section className="grid h-[100vh] place-content-center p-12">
-      <FloatingPhone />
-    </section>
-  );
-};
-
-const FloatingPhone = () => {
-  return (
-    <div
-      style={{
-        transformStyle: "preserve-3d",
-        transform: "rotateY(-30deg) rotateX(15deg)",
-      }}
-      className="rounded-[24px] bg-[#1e1e1e] border"
+    <div 
+    id='about'
+      ref={element}
+      className="flex flex-col items-center justify-center min-h-screen py-20"
     >
-      <motion.div
-        initial={{
-          transform: "translateZ(8px) translateY(-2px)",
-        }}
-        animate={{
-          transform: "translateZ(32px) translateY(-8px)",
-        }}
-        transition={{
-          repeat: Infinity,
-          repeatType: "mirror",
-          duration: 2,
-          ease: "easeInOut",
-        }}
-        className="relative h-[60vh] w-[80vw] rounded-[24px] border-2 border-b-4 border-r-4 border-white border-l-neutral-200 border-t-neutral-200 bg-neutral-900 p-1 pl-[3px] pt-[3px]"
-      >
-        <Screen />
-      </motion.div>
+      {/* Space before sticky section */}
+      <div className="h-64"></div>
+      
+      <div className="sticky top-1/2 transform -translate-y-1/2 w-full max-w-4xl mx-auto px-4 text-center">
+        <div className="flex flex-wrap justify-center items-center gap-2 md:gap-3 text-3xl md:text-4xl lg:text-5xl font-bold">
+          {words.map((word, i) => {
+            const range = calculateRange(i, words.length);
+            return (
+              <Nword 
+                key={i} 
+                range={range} 
+                progress={scrollYProgress}
+              >
+                {word}
+              </Nword>
+            );
+          })}
+        </div>
+      </div>
+      
+      {/* Space after sticky section */}
+      <div className="h-screen"></div>
     </div>
   );
-};
+}
 
-const Screen = () => {
-  const [displayText, setDisplayText] = useState('');
-  const fullText = "We are the film production company, shaping unique stories that truly resonate.";
-
-  useEffect(() => {
-    let isMounted = true;
-    let currentIndex = 0;
-
-    const typeNextCharacter = () => {
-      if (isMounted && currentIndex < fullText.length) {
-        setDisplayText(prev => prev + fullText[currentIndex]);
-        currentIndex++;
-        setTimeout(typeNextCharacter, 50); // Adjust typing speed here
-      }
-    };
-
-    typeNextCharacter();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
+const Nword = ({ children, range, progress }) => {
+  // Transform from initial 0.2 opacity to full opacity based on scroll
+  const opacity = useTransform(
+    progress, 
+    range, 
+    [0.2, 1] // Start at 0.2 opacity as skeleton effect
+  );
+  
   return (
-    <div className="relative z-0 grid h-full w-full place-content-center overflow-hidden rounded-[20px] bg-white p-4">
-      <motion.p 
-        className="text-black text-center text-3xl sm:text-7xl font-bold"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        {displayText}
-        <motion.span
-          animate={{ opacity: [0, 1] }}
-          transition={{
-            duration: 0.7,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-          className="inline-block ml-1 w-2 bg-black"
-        >
-          |
-        </motion.span>
-      </motion.p>
-    </div>
+    <motion.div 
+      className="mx-1 my-1 md:mx-2"
+      style={{ opacity }}
+    >
+      <motion.span className="block">
+        {children}
+      </motion.span>
+    </motion.div>
   );
 };
 
-export default Exmmple;
+export default Word;
