@@ -17,6 +17,7 @@ import Exmmple from './components/Hero';
 import TextSkewAnimation from './components/Try';
 import TextEx from './components/Try';
 import Scene from './components/Scene';
+import './App.css'
 
 function App() {
   const [mouseX, setMouseX] = useState(0);

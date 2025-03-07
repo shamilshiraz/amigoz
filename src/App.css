@@ -4,31 +4,8 @@ body{
   font-family: 'avant';
   width: 100vw;
   overflow-x: hidden;
+  cursor: none;
 }
 
-/* Custom Cursor */
-.cursor-dot,
-.cursor-ring {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.1s ease-out;
-}
-
-.cursor-dot {
-  width: 8px;  /* Small cursor dot */
-  height: 8px;
-  background-color: white;
-  opacity: 0.8;
-}
-
-.cursor-ring {
-  width: 40px; /* Larger cursor ring */
-  height: 40px;
-  border: 2px solid white;
-  opacity: 0.3;
-  transition: transform 0.2s ease-out;
-}
 
 
