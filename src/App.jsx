@@ -66,12 +66,12 @@ function App() {
     <div className="relative">
       {/* Custom Cursor */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-white rounded-full pointer-events-none z-[9999]"
+        className="fixed hidden sm:block top-0 left-0 w-3 h-3 bg-white rounded-full pointer-events-none z-[9999]"
         animate={{ x: mouseX - 6, y: mouseY - 6 }}
         transition={{ type: 'spring', stiffness: 500, damping: 28 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-12 h-12 border border-white rounded-full pointer-events-none z-[9998]"
+        className="fixed hidden sm:block top-0 left-0 w-12 h-12 border border-white rounded-full pointer-events-none z-[9998]"
         animate={{ x: mouseX - 24, y: mouseY - 24 }}
         transition={{ type: 'spring', stiffness: 100, damping: 15 }}
       />
