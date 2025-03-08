@@ -18,17 +18,18 @@ function Footer() {
       {/* Overlay Content */}
       <div className="relative z-10 w-full h-full flex flex-col justify-between">
         {/* Footer Content */}
-        <div className="flex flex-col md:flex-row justify-between px-6 py-10 bg-opacity-70 text-white space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-evenly px-6 py-10 bg-opacity-70 text-white space-y-4 md:space-y-0">
           {/* Column 1: Logo and Address */}
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2 bg-black">
             <img src="/logo.png" alt="Logo" className="h-12" />
-            <p className="text-sm">1234 Street Name, City, Country</p>
-            <p className="text-sm">Phone: (123) 456-7890</p>
-            <p className="text-sm">Email: contact@company.com</p>
+            <p className="text-sm">Amigoz AD ventures, F22 IT Plaza, Silicon oasis</p>
+            <p className="text-sm">Dubai, UAE</p>
+            <p className="text-sm">Phone: +971 50 977 2710 </p>
+            <p className="text-sm">Email: schedule@amigozme.com</p>
           </div>
 
           {/* Column 2: Social Media Links */}
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2 bg-black">
             <h3 className="text-xl font-semibold">Follow Us</h3>
             <div className="flex space-x-4">
               <a href="https://facebook.com" className="text-lg">Facebook</a>
