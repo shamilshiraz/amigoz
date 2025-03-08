@@ -93,7 +93,7 @@ function App() {
     }}
   >
     <video
-      className="w-[150px] h-[150px] object-cover"
+      className="w-[200px] h-[200px] object-cover"
       autoPlay
       muted
       playsInline
