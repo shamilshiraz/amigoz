@@ -1,32 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { X, MessageCircle } from 'lucide-react'; // Icons
+import { X, MessageCircle } from 'lucide-react';
 
 const InfiniteSlider = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isChatTriggered, setIsChatTriggered] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsChatOpen(true);
-      setIsChatTriggered(true); // Mark as triggered so it doesn't auto-show again
-    }, 5000); // Show after 5 seconds
+      setIsChatTriggered(true);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
 
   const handleCloseChat = (e) => {
-    e.stopPropagation(); // Prevent triggering the parent's onClick
+    e.stopPropagation();
     setIsChatOpen(false);
   };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const pauseAt = 5; // Pause at 5 seconds
+      const checkTime = () => {
+        if (video.currentTime >= pauseAt) {
+          video.pause();
+        }
+      };
+      video.addEventListener('timeupdate', checkTime);
+      return () => video.removeEventListener('timeupdate', checkTime);
+    }
+  }, []);
 
   return (
     <div id='home' className="flex items-center justify-center w-full h-[100vh] sm:h-[90vh] overflow-hidden relative">
       {/* Video Background */}
       <video 
-        className="absolute sm:w-full sm:h-full object-contain sm:object-cover"
+        ref={videoRef}
+        className="relative sm:w-full sm:h-full object-contain sm:object-cover"
         autoPlay
-        loop
         muted
         playsInline
       >
@@ -34,7 +49,7 @@ const InfiniteSlider = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Chat Icon - Bottom Right */}
+      {/* Chat Icon */}
       <div
         className="fixed bottom-8 right-8 bg-white text-black p-3 rounded-full shadow-lg cursor-pointer hover:bg-gray-200 transition z-20"
         onClick={() => setIsChatOpen(true)}
@@ -42,7 +57,7 @@ const InfiniteSlider = () => {
         <MessageCircle size={24} />
       </div>
 
-      {/* Chat Popup (Shows after 5s & can be manually opened/closed) */}
+      {/* Chat Popup */}
       {isChatOpen && (
         <motion.a
           href='https://wa.me/971509772710'
@@ -62,7 +77,7 @@ const InfiniteSlider = () => {
         </motion.a>
       )}
 
-      {/* Small rotating image in bottom left corner */}
+      {/* Rotating Image */}
       <motion.a
         href='https://portfolio.amigozme.com/'
         className="fixed bottom-8 left-8 z-20"

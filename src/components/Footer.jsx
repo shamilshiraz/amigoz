@@ -55,7 +55,7 @@ reality"              </p>
 
             {/* All Rights Reserved */}
             <div className="space-y-4">
-              <p className="text-sm">&copy; {new Date().getFullYear()} amigoz ad venture. All Rights Reserved.</p>
+              <p className="text-sm">&copy; {new Date().getFullYear()} amigoz productions. All Rights Reserved.</p>
               <img src="/a.png" alt="Logo" className="h-12" />
 
             </div>

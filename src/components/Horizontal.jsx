@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 
 const Example = () => {
   return (
-    <div className="" style={{ marginTop: "10vh" }}>
+    <div style={{ marginTop: "10vh" }}>
       <div className="flex h-8 items-center justify-center">
         <span className="font-semibold uppercase sticky top-[10vh] left-0 text-4xl">Featured projects</span>
       </div>
@@ -17,13 +17,36 @@ const HorizontalScrollCarousel = () => {
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
+  
+  const cardsCount = cards.length;
+  const cardWidth = 450; // Width of each card
+  const gapWidth = 16; // Gap between cards (from gap-4)
+  
+  // Calculate total content width
+  const totalWidth = cardsCount * (cardWidth + gapWidth);
+  
+  // Calculate how much to move based on viewport width
+  const [movePercentage, setMovePercentage] = useState("-95%");
+  
+  useEffect(() => {
+    const calculateMove = () => {
+      const viewportWidth = window.innerWidth;
+      // Calculate exact percentage needed
+      const exactPercentage = -1 * ((totalWidth - viewportWidth) / totalWidth) * 100;
+      setMovePercentage(`${exactPercentage}%`);
+    };
+    
+    calculateMove();
+    window.addEventListener("resize", calculateMove);
+    return () => window.removeEventListener("resize", calculateMove);
+  }, [totalWidth]);
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", movePercentage]);
 
   return (
-    <section ref={targetRef} className="relative h-[140vh]">
+    <section ref={targetRef} className="relative h-[110vh]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-4">
+        <motion.div style={{ x }} className="flex gap-4 pr-8">
           {cards.map((card) => (
             <Card card={card} key={card.id} />
           ))}
@@ -32,6 +55,72 @@ const HorizontalScrollCarousel = () => {
     </section>
   );
 };
+
+// const Card = ({ card }) => {
+//   return (
+//     <div className="h-[450px] w-[450px] rounded-lg bg-white p-4 shadow-md mr-2">
+//       <h2 className="text-xl font-bold">{card.title}</h2>
+//       <div className="mt-2 h-[380px] overflow-hidden rounded">
+//         <img 
+//           src={card.thumbnail} 
+//           alt={card.title} 
+//           className="h-full w-full object-cover"
+//           onError={(e) => {
+//             e.target.src = "./placeholder.jpg"; // Fallback image if thumbnail fails to load
+//           }}
+//         />
+//       </div>
+//     </div>
+//   );
+// };
+
+export default Example;
+
+const cards = [
+  {
+    title: "Honor",
+    id: 1,
+    iframe: "https://drive.google.com/file/d/1N08bEPONhczkULrHda5PsigwSCLVG6mz/preview",
+    thumbnail: "./honor.jpg",
+  },
+  {
+    title: "Dubai police",
+    id: 2,
+    iframe: "https://drive.google.com/file/d/1gnkWAuR88xBWfrt3GWmF1vgSueSCDU-_/preview",
+    thumbnail: "./dbp.png",
+  },
+  {
+    title: "F1",
+    id: 3,
+    iframe: "https://drive.google.com/file/d/1qXHsVyJctRkxOWbBvAjgA3M1nDVIK86e/preview",
+    thumbnail: "./f1.png",
+  },
+  {
+    title: "Squid games x Coke studio",
+    id: 4,
+    iframe: "https://drive.google.com/file/d/1qXHsVyJctRkxOWbBvAjgA3M1nDVIK86e/preview",
+    thumbnail: "./sqg.png",
+  },
+  {
+    title: "Not a space",
+    id: 5,
+    iframe: "https://drive.google.com/file/d/1tkUJ-4DVex8IrrARpUaS1pj2fLr8VDjR/preview",
+    thumbnail: "nas.png",
+  },
+  {
+    title: "",
+    id: 6,
+    iframe: "https://drive.google.com/file/d/1JmI-gtudVK4vk1t0shdS2eKt8A9bvfVs/preview",
+    thumbnail: "./wafa.png",
+  },
+  {
+    title: "Birthday",
+    id: 7,
+    iframe: "https://drive.google.com/file/d/1h1yf955V2o9yZHik0Soe7hCqcG55EFPk/preview",
+    thumbnail: "./bday.png",
+  }, 
+];
+
 
 const Card = ({ card }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -120,53 +209,3 @@ const Card = ({ card }) => {
     </div>
   );
 };
-
-export default Example;
-
-const cards = [
-  {
-    title: "Honor",
-    id: 1,
-    iframe: "https://drive.google.com/file/d/1N08bEPONhczkULrHda5PsigwSCLVG6mz/preview",
-    thumbnail: "./honor.jpg",
-  },
-  {
-    title: "Dubai police",
-    id: 2,
-    iframe: "https://drive.google.com/file/d/1gnkWAuR88xBWfrt3GWmF1vgSueSCDU-_/preview",
-    thumbnail: "./dbp.png",
-  },
-  {
-    title: "F1",
-    id: 3,
-    iframe: "https://drive.google.com/file/d/1qXHsVyJctRkxOWbBvAjgA3M1nDVIK86e/preview",
-    thumbnail: "./f1.png",
-  },
-  {
-    title: "Squid games x Coke studio",
-    id: 4,
-    iframe: "https://drive.google.com/file/d/1qXHsVyJctRkxOWbBvAjgA3M1nDVIK86e/preview",
-    thumbnail: "./sqg.png",
-  },
-  {
-    title: "Not a space",
-    id: 5,
-    iframe: "https://drive.google.com/file/d/1tkUJ-4DVex8IrrARpUaS1pj2fLr8VDjR/preview",
-    thumbnail: "nas.png",
-  },
-  {
-    title: "",
-    id: 6,
-    iframe: "https://drive.google.com/file/d/1JmI-gtudVK4vk1t0shdS2eKt8A9bvfVs/preview",
-    thumbnail: "./wafa.png",
-  },
-  {
-    title: "Birthday",
-    id: 7,
-    iframe: "https://drive.google.com/file/d/1h1yf955V2o9yZHik0Soe7hCqcG55EFPk/preview",
-    thumbnail: "./bday.png",
-  },
-  
-  
-  
-];
