@@ -50,31 +50,31 @@ const InfiniteSlider = () => {
       </video>
 
       {/* Chat Icon */}
-      <div
+      <a href='https://wa.me/971509772710'
         className="fixed bottom-8 right-8 bg-white text-black p-3 rounded-full shadow-lg cursor-pointer hover:bg-gray-200 transition z-20"
         onClick={() => setIsChatOpen(true)}
       >
         <MessageCircle size={24} />
-      </div>
+      </a>
 
       {/* Chat Popup */}
       {isChatOpen && (
-        <motion.a
-          href='https://wa.me/971509772710'
+        <motion.div
+          
           className="fixed bottom-20 right-8 bg-white p-4 w-64 rounded-lg shadow-xl z-50"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
           <div className="flex justify-between items-center mb-2">
-            <p className="font-semibold text-black">Chat with us</p>
+            <p className="font-semibold text-black"><a href='https://wa.me/971509772710'>Chat with us</a></p>
             <X
               className="cursor-pointer text-gray-500 hover:text-gray-800"
               onClick={handleCloseChat}
             />
           </div>
           <p className="text-gray-600 text-sm">How can we help you today?</p>
-        </motion.a>
+        </motion.div>
       )}
 
       {/* Rotating Image */}

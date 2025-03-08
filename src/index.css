@@ -5,14 +5,6 @@
   src: url('./fonts/avant.ttf');
 }
 
-@font-face {
-  font-family: 'sohne';
-  src: url('./fonts/TestSohne-Kraftig-BF663d89cd37e26.otf');
-}
-@font-face {
-  font-family: 'over';
-  src: url('./fonts/ckhans-fonts-helonik-extended-bold-demo.otf');
-}
 
 ::-webkit-scrollbar{
   display: none;
