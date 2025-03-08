@@ -9,12 +9,11 @@ function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mx-[15px]">
             {/* Sitemap */}
             <div className="space-y-4">
-              <img src="/a.png" alt="Logo" className="h-12" />
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:underline text-sm">Home</a></li>
-                <li><a href="#" className="hover:underline text-sm">About</a></li>
-                <li><a href="#" className="hover:underline text-sm">Services</a></li>
-                <li><a href="#" className="hover:underline text-sm">Contact</a></li>
+                <li><a href="#home" className="hover:underline text-sm">Home</a></li>
+                <li><a href="#about" className="hover:underline text-sm">About</a></li>
+                <li><a href="#services" className="hover:underline text-sm">Services</a></li>
+                <li><a href="#contact" className="hover:underline text-sm">Contact</a></li>
               </ul>
             </div>
 
@@ -31,13 +30,33 @@ function Footer() {
             {/* Small Sentence */}
             <div className="col-span-1 sm:col-span-2 lg:col-span-1 space-y-4">
               <p className="text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-              </p>
+              "Amigoz
+creates
+stunning
+visual
+content
+with
+cinematic
+storytelling
+innovative
+editing
+techniques
+and
+creative
+direction
+that
+transforms
+your
+vision
+into
+reality"              </p>
             </div>
 
             {/* All Rights Reserved */}
             <div className="space-y-4">
               <p className="text-sm">&copy; {new Date().getFullYear()} amigoz ad venture. All Rights Reserved.</p>
+              <img src="/a.png" alt="Logo" className="h-12" />
+
             </div>
           </div>
         </div>

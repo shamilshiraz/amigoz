@@ -86,32 +86,49 @@ function App() {
     <div className="relative">
       {/* Loading Screen */}
       {loading && (
-        <motion.div
-          className="fixed top-0 left-0 w-full h-full bg-black flex flex-col justify-center items-center z-50"
-          initial={{ opacity: 1, y: 0 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }} // Fade and move up
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-        >
-          <p className="text-white mt-4 text-xl"><span className='font-[over]'>{progress}</span>%</p>
-        </motion.div>
-      )}
-
-      {/* Background Image Div */}
-      <div
-        className="fixed inset-0 w-[100vw] h-[100vh] bg-cover bg-center opacity-30 z-0"
-        style={{ backgroundImage: "url('/scratches.png')" }}
-      >  <video
-      className="absolute inset-0 w-full h-full object-cover z-0"
+  <div 
+    className="fixed top-0 left-0 w-full h-full bg-black grid place-content-center z-50"
+    style={{
+      animation: loading ? "none" : "fadeOutToTop 0.5s ease-in-out forwards"
+    }}
+  >
+    <video
+      className="w-[150px] h-[150px] object-cover"
       autoPlay
-      loop
       muted
       playsInline
+      onEnded={() => setLoading(false)}
     >
-      <source src="/scratches.mp4" type="video/mp4" />
+      <source src="/loading.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
+    <style jsx>{`
+      @keyframes fadeOutToTop {
+        0% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-50px); }
+      }
+    `}</style>
   </div>
+)}
+
+      {/* Background Image Div */}
+      {!loading && (
+        <div
+          className="fixed inset-0 w-[100vw] h-[100vh] bg-cover bg-center opacity-30 z-0"
+          style={{ backgroundImage: "url('/scratches.png')" }}
+        >
+          <video
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/scratches.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      )}
 
       {/* Custom Cursor */}
       <motion.div
@@ -126,18 +143,21 @@ function App() {
       />
 
       {/* Page Content */}
-      <Nav />
-      <Scene />
-      <Exmmple />
-      <VideoGrid />
-      <Intro />
-      <Stack />
-      <Example />
-      <LargeClientScroller />
-      <Mos />
+      {!loading && (
+        <div>
+          <Nav />
+          <Scene />
+          <Exmmple />
+          <VideoGrid />
+          <Intro />
+          <Stack />
+          <Example />
+          <LargeClientScroller />
+          <Mos />
+        </div>
+      )}
     </div>
   );
 }
 
 export default App;
-
