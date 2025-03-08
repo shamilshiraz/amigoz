@@ -19,11 +19,12 @@ function Footer() {
 
             {/* Social Media Links */}
             <div className="space-y-4">
-              <h3 className="text-sm font-semibold">Follow Us</h3>
               <div className="flex flex-col space-x-4 justify-between">
-                <a href="https://facebook.com" className="text-sm hover:underline">Facebook</a>
-                <a href="https://twitter.com" className="text-sm hover:underline">Twitter</a>
-                <a href="https://instagram.com" className="text-sm hover:underline">Instagram</a>
+                <a href="https://www.facebook.com/amigozproductionsme?mibextid=wwXIfr&rdid=Gowj70llPUKNHLZf&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15heuBcnKG%2F%3Fmibextid%3DwwXIfr#" className="text-sm hover:underline">Facebook</a>
+                <a href="https://x.com/amigozfilms?s=21&mx=2" className="text-sm hover:underline">Twitter</a>
+                <a href="https://www.instagram.com/amigoz_productions/?utm_source=qr" className="text-sm hover:underline">Instagram</a>
+                <a href="https://www.linkedin.com/company/amigozproductions/" className="text-sm hover:underline">LinkedIn</a>
+
               </div>
             </div>
 

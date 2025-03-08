@@ -1,38 +1,68 @@
-import React, { useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { X, MessageCircle } from 'lucide-react'; // Icons
 
-const  InfiniteSlider = () => {
+const InfiniteSlider = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isChatTriggered, setIsChatTriggered] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsChatOpen(true);
+      setIsChatTriggered(true); // Mark as triggered so it doesn't auto-show again
+    }, 5000); // Show after 10 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleCloseChat = () => {
+    setIsChatOpen(false);
+  };
+
   return (
     <div id='home' className="flex items-center justify-center w-full h-[100vh] sm:h-[90vh] overflow-hidden relative">
       {/* Static background text */}
-      <div className="absolute w-full text-center font-bold text-white ">
+      <div className="absolute w-full text-center font-bold text-white">
         <h1 className="font-['over'] text-[4rem] sm:text-[12rem]">AMIGOZ</h1>
       </div>
 
-
-      {/* Subtext - positioned at the bottom right-center */}
-      <div className="fixed bottom-8 right-8 text-white  z-20">
-        <p className="text-sm sm:text-base"><a href="" className='font-[over]'>IG</a>|<a href="" className='font-[over]'>WA</a></p>
+      {/* Chat Icon - Bottom Right */}
+      <div
+        className="fixed bottom-8 right-8 bg-white text-black p-3 rounded-full shadow-lg cursor-pointer hover:bg-gray-200 transition"
+        onClick={() => setIsChatOpen(true)}
+      >
+        <MessageCircle size={24} />
       </div>
 
+      {/* Chat Popup (Shows after 10s & can be manually opened/closed) */}
+      {isChatOpen && (
+        <motion.a
+        href='https://wa.me/971509772710'
+          className="fixed bottom-20 right-8 bg-white p-4 w-64 rounded-lg shadow-xl z-50"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="flex justify-between items-center mb-2">
+            <p className="font-semibold text-black">Chat with us</p>
+            <X
+              className="cursor-pointer text-gray-500 hover:text-gray-800"
+              onClick={handleCloseChat}
+            />
+          </div>
+          <p className="text-gray-600 text-sm">How can we help you today?</p>
+        </motion.a>
+      )}
+
       {/* Small rotating image in bottom left corner */}
-      <motion.div 
+      <motion.a
+      href='https://portfolio.amigozme.com/'
         className="fixed bottom-8 left-8 z-20"
-        animate={{
-          rotate: 360
-        }}
-        transition={{
-          duration: 4,
-          ease: "linear",
-          repeat: Infinity
-        }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 4, ease: "linear", repeat: Infinity }}
       >
-        <img 
-          src="./globe.png" 
-          alt="Rotating logo" 
-          className="w-12 h-12 sm:w-16 sm:h-16" 
-        />
-      </motion.div>
+        <img src="./globe.png" alt="Rotating logo" className="w-12 h-12 sm:w-16 sm:h-16" />
+      </motion.a>
     </div>
   );
 };
