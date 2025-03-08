@@ -11,7 +11,7 @@ function Word() {
   });
   
   // Text about Amigoz video production studio
-  const value = "AMIGOZ creates stunning visual content with cinematic storytelling innovative editing techniques and creative direction that transforms your vision into reality";
+  const value = "Amigoz creates stunning visual content with cinematic storytelling innovative editing techniques and creative direction that transforms your vision into reality";
   
   // Split text into words
   const words = value.split(' ');
@@ -26,7 +26,7 @@ function Word() {
   
   return (
     <div 
-    id='about'
+      id='about'
       ref={element}
       className="flex flex-col items-center justify-center min-h-screen py-20"
     >
@@ -57,17 +57,33 @@ function Word() {
 }
 
 const Nword = ({ children, range, progress }) => {
-  // Transform from initial 0.2 opacity to full opacity based on scroll
+  // Transform opacity from initial 0.2 to full opacity based on scroll
   const opacity = useTransform(
     progress, 
     range, 
-    [0.2, 1] // Start at 0.2 opacity as skeleton effect
+    [0.2, 1] 
+  );
+  
+  // Add blur effect that decreases as scroll progresses
+  const blurAmount = useTransform(
+    progress,
+    range,
+    [8, 0] // Start with 8px blur and reduce to 0
+  );
+  
+  // Transform the blur amount directly into a CSS filter string
+  const filterStyle = useTransform(
+    blurAmount,
+    (value) => `blur(${value}px)`
   );
   
   return (
     <motion.div 
       className="mx-1 my-1 md:mx-2"
-      style={{ opacity }}
+      style={{ 
+        opacity,
+        filter: filterStyle
+      }}
     >
       <motion.span className="block">
         {children}

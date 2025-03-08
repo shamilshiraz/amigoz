@@ -3,40 +3,21 @@ import { motion } from 'framer-motion';
 
 const  InfiniteSlider = () => {
   return (
-    <div id='home' className="flex items-center justify-center w-full h-[90vh] overflow-hidden relative bg-black">
+    <div id='home' className="flex items-center justify-center w-full h-[100vh] sm:h-[90vh] overflow-hidden relative">
       {/* Static background text */}
       <div className="absolute w-full text-center font-bold text-white ">
-        <h1 className="font-['over'] text-[5rem] sm:text-[12rem]">AMIGOZ</h1>
+        <h1 className="font-['over'] text-[4rem] sm:text-[12rem]">AMIGOZ</h1>
       </div>
 
-      {/* Floating image in the center - without borders */}
-      <motion.div 
-        className="absolute "
-        animate={{
-          y: [0, -15, 0, 15, 0],
-          scale: [1, 1.05, 1, 1.05, 1],
-        }}
-        transition={{
-          duration: 4,
-          ease: "easeInOut",
-          repeat: Infinity
-        }}
-      >
-        <img 
-          src="./cam.png" 
-          alt="Floating icon" 
-          className="w-screen sm:w-[60vw]" 
-        />
-      </motion.div>
 
       {/* Subtext - positioned at the bottom right-center */}
-      <div className="absolute bottom-16 right-8 text-white font-['over'] z-20">
-        <p className="text-sm sm:text-base">THE FILMMAKING COMPANY</p>
+      <div className="fixed bottom-8 right-8 text-white  z-20">
+        <p className="text-sm sm:text-base"><a href="" className='font-[over]'>IG</a>|<a href="" className='font-[over]'>WA</a></p>
       </div>
 
       {/* Small rotating image in bottom left corner */}
       <motion.div 
-        className="absolute bottom-8 left-8 z-20"
+        className="fixed bottom-8 left-8 z-20"
         animate={{
           rotate: 360
         }}

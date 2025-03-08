@@ -116,9 +116,7 @@ const Card = ({ card }) => {
             <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center mb-2">
               <span className="text-white text-2xl">▶</span>
             </div>
-            <p className="text-white text-sm font-medium bg-opacity-50 px-3 py-1 rounded-full">
-              {card.title}
-            </p>
+
           </div>
         </div>
       )}
@@ -160,7 +158,7 @@ const cards = [
     thumbnail: "nas.png",
   },
   {
-    title: "Wafa ramp",
+    title: "",
     id: 6,
     iframe: "https://drive.google.com/file/d/1JmI-gtudVK4vk1t0shdS2eKt8A9bvfVs/preview",
     thumbnail: "./wafa.png",

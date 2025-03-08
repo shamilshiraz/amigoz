@@ -27,122 +27,92 @@ const LargeClientScroller = () => {
   const [speed] = useState(30); // Animation speed in seconds
 
   return (
-    <div id='contact' className="flex justify-center py-16 overflow-hidden" style={{ marginBottom: '20vh' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold y-10">Our Trusted Clients</h2>
-        </div>
-
-        {/* First row - moves left to right */}
-        <div className="relative mb-12 overflow-hidden py-4">
-          <div className="client-scroll-1 flex space-x-6">
-            {clients.slice(0, 9).map((client) => (
-              <div 
-                key={client.id} 
-                className="flex-none w-48 h-28 rounded-lg shadow-md flex items-center justify-center p-4 transition-all hover:shadow-lg"
-              >
-                <div className="text-center">
-                  <img 
-                    src={client.url} 
-                    alt={`Client ${client.id}`} 
-                    className="w-16 h-16 object-contain grayscale transition-all hover:grayscale-0"
-                  />
-                </div>
-              </div>
-            ))}
-
-            {/* Duplicate for continuous scrolling */}
-            {clients.slice(0, 9).map((client) => (
-              <div 
-                key={`dup1-${client.id}`} 
-                className="flex-none w-48 h-28 rounded-lg shadow-md flex items-center justify-center p-4 transition-all hover:shadow-lg"
-              >
-                <div className="text-center">
-                  <img 
-                    src={client.url} 
-                    alt={`Client ${client.id}`} 
-                    className="w-16 h-16 object-contain grayscale transition-all hover:grayscale-0"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Second row - moves right to left (opposite direction) */}
-        <div className="relative mb-12 overflow-hidden py-4">
-          <div className="client-scroll-2 flex space-x-6">
-            {clients.slice(9).map((client) => (
-              <div 
-                key={client.id} 
-                className="flex-none w-48 h-28 rounded-lg shadow-md flex items-center justify-center p-4 transition-all hover:shadow-lg"
-              >
-                <div className="text-center">
-                  <img 
-                    src={client.url} 
-                    alt={`Client ${client.id}`} 
-                    className="w-16 h-16 object-contain grayscale transition-all hover:grayscale-0"
-                  />
-                </div>
-              </div>
-            ))}
-
-            {/* Duplicate for continuous scrolling */}
-            {clients.slice(9).map((client) => (
-              <div 
-                key={`dup2-${client.id}`} 
-                className="flex-none w-48 h-28 rounded-lg shadow-md flex items-center justify-center p-4 transition-all hover:shadow-lg"
-              >
-                <div className="text-center">
-                  <img 
-                    src={client.url} 
-                    alt={`Client ${client.id}`} 
-                    className="w-16 h-16 object-contain grayscale transition-all hover:grayscale-0"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <style jsx>{`
-        @keyframes scrollLeft {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        @keyframes scrollRight {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-
-        .client-scroll-1 {
-          display: flex;
-          width: max-content;
-          animation: scrollLeft ${speed}s linear infinite;
-        }
-
-        .client-scroll-2 {
-          display: flex;
-          width: max-content;
-          animation: scrollRight ${speed}s linear infinite;
-        }
-
-        .client-scroll-1:hover,
-        .client-scroll-2:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
+<div id="contact" className="flex justify-center py-16 overflow-hidden" style={{ marginBottom: "20vh" }}>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl font-bold y-10">Our Trusted Clients</h2>
     </div>
+
+    {/* First row - moves left to right */}
+    <div className="relative mb-12 overflow-hidden py-4">
+      <div className="client-scroll-1 flex space-x-6">
+        {[...clients.slice(0, 9), ...clients.slice(0, 9)].map((client, index) => (
+          <div
+            key={`client-1-${index}`}
+            className="flex-none w-48 h-28 rounded-lg shadow-md flex items-center justify-center transition-all hover:shadow-lg"
+          >
+            <div className="text-center">
+              <img
+                src={client.url}
+                alt={`Client ${client.id}`}
+                className="w-20 h-20 min-w-20 min-h-20 object-contain bg-white rounded-full  grayscale transition-all hover:grayscale-0"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Second row - moves right to left */}
+    <div className="relative mb-12 overflow-hidden py-4">
+      <div className="client-scroll-2 flex space-x-6">
+        {[...clients.slice(9), ...clients.slice(9)].map((client, index) => (
+          <div
+            key={`client-2-${index}`}
+            className="flex-none w-48 h-28 rounded-lg shadow-md flex items-center justify-center p-4 transition-all hover:shadow-lg"
+          >
+            <div className="text-center">
+              <img
+                src={client.url}
+                alt={`Client ${client.id}`}
+                className="w-20 h-20 min-w-20 min-h-20 object-contain bg-white rounded-full p-4 grayscale transition-all hover:grayscale-0"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <style jsx>{`
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes scrollRight {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .client-scroll-1 {
+      display: flex;
+      width: max-content;
+      animation: scrollLeft 15s linear infinite;
+    }
+
+    .client-scroll-2 {
+      display: flex;
+      width: max-content;
+      animation: scrollRight 15s linear infinite;
+    }
+
+    .client-scroll-1:hover,
+    .client-scroll-2:hover {
+      animation-play-state: paused;
+    }
+  `}</style>
+</div>
+
+
   );
 };
 

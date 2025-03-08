@@ -1,80 +1,47 @@
-import React from 'react';
-import { Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import React from "react";
 
 function Footer() {
   return (
-    <div className='relative h-[50vh] w-full bg-[#1e1e1e] text-white overflow-hidden '>
-      {/* Big background text */}
-      <div className='absolute inset-0 flex items-center justify-center pointer-events-none'>
-        <h1 className='text-[20vw] font-extrabold text-[#2a2a2a] select-none'>amigoz</h1>
-      </div>
-      
-      {/* Footer content container - maintains h-full to preserve height */}
-      <div className='relative z-10 h-full w-full flex flex-col justify-between px-6 py-12'>
-        
-        {/* Main content in columns - centered with max width */}
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto w-full' style={{margin:'30px'}}>
-          {/* Column 1: Logo and tagline */}
-          <div>
-            <h2 className='text-3xl font-bold'>amigoz</h2>
-            <p className='text-gray-400 mt-2'>Creating awesome experiences</p>
-            
-            {/* Contact info */}
-            <div className='mt-6 space-y-3'>
-              <div className='flex items-center gap-2'>
-                <Mail size={16} />
-                <a href="mailto:hello@amigoz.com" className='hover:underline'>hello@amigoz.com</a>
-              </div>
-              <div className='flex items-center gap-2'>
-                <Phone size={16} />
-                <a href="tel:+1234567890" className='hover:underline'>+971 50 977 2710</a>
-              </div>
-            </div>
+    <div className="relative w-full h-[50vh]">
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/footer.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay Content */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-between">
+        {/* Footer Content */}
+        <div className="flex flex-col md:flex-row justify-between px-6 py-10 bg-opacity-70 text-white space-y-4 md:space-y-0">
+          {/* Column 1: Logo and Address */}
+          <div className="flex flex-col space-y-2">
+            <img src="/logo.png" alt="Logo" className="h-12" />
+            <p className="text-sm">1234 Street Name, City, Country</p>
+            <p className="text-sm">Phone: (123) 456-7890</p>
+            <p className="text-sm">Email: contact@company.com</p>
           </div>
-          
-          {/* Column 2: Navigation links */}
-          <div>
-            <h3 className='text-lg font-semibold mb-4'>Quick Links</h3>
-            <nav>
-              <ul className='space-y-3'>
-                <li><a href="/" className='hover:text-gray-300 transition-colors'>Home</a></li>
-                <li><a href="/about" className='hover:text-gray-300 transition-colors'>About</a></li>
-                <li><a href="/services" className='hover:text-gray-300 transition-colors'>Services</a></li>
-                <li><a href="/portfolio" className='hover:text-gray-300 transition-colors'>Portfolio</a></li>
-                <li><a href="/contact" className='hover:text-gray-300 transition-colors'>Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          
-          {/* Column 3: Social links */}
-          <div>
-            <h3 className='text-lg font-semibold mb-4'>Connect With Us</h3>
-            <div className='flex gap-4'>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className='p-2 rounded-full hover:bg-[#2a2a2a] transition-colors' aria-label="Instagram">
-                <Instagram />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className='p-2 rounded-full hover:bg-[#2a2a2a] transition-colors' aria-label="LinkedIn">
-                <Linkedin />
-              </a>
-            </div>
-            
-            <div className='mt-6'>
-              <p className='text-sm text-gray-400'>
-                Subscribe to our newsletter for the latest updates and offers.
-              </p>
+
+          {/* Column 2: Social Media Links */}
+          <div className="flex flex-col space-y-2">
+            <h3 className="text-xl font-semibold">Follow Us</h3>
+            <div className="flex space-x-4">
+              <a href="https://facebook.com" className="text-lg">Facebook</a>
+              <a href="https://twitter.com" className="text-lg">Twitter</a>
+              <a href="https://instagram.com" className="text-lg">Instagram</a>
             </div>
           </div>
         </div>
-        
-        {/* Copyright footer - now spans full width */}
-        <div className='w-full border-t border-gray-800'>
-          <div className=' mx-auto w-full py-6 px-6'>
-            <div className='text-sm text-gray-400 flex justify-center'>
-              &copy; {new Date().getFullYear()} amigoz. All rights reserved.
-            </div>
-          </div>
+
+        {/* Footer Bottom Text */}
+        <div className="text-center py-4 bg-black bg-opacity-60 text-white">
+          &copy; {new Date().getFullYear()} Your Company. All Rights Reserved.
         </div>
-        
       </div>
     </div>
   );
