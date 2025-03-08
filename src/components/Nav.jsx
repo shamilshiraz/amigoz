@@ -27,7 +27,7 @@ function Nav() {
       </div>
 
       {/* Mobile Navbar (Hamburger Menu) */}
-      <div className="md:hidden flex items-center justify-between h-[10vh] fixed top-0 left-0 right-0 z-[100] mx-5" style={{marginInline:'15px'}}>
+      <div className="md:hidden flex items-center justify-between h-[10vh] fixed top-0 left-0 right-0 z-[49] mx-5" style={{marginInline:'15px'}}>
         <img src="./a.png" className="h-[5vh] mx-5" alt="Logo" />
         <button onClick={() => setIsOpen(!isOpen)} className="text-white text-xl mx-5">
           {isOpen ? "✕" : "Menu"}

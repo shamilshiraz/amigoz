@@ -2,47 +2,59 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="relative w-full h-[50vh]">
-      {/* Video Background */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src="/footer.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <div>
+      {/* Footer Section */}
+      <div className="bg-black text-white py-10 border-t" style={{marginInline:'15px',paddingBlock:'10px'}}>
+        <div className="max-w-8xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mx-[15px]">
+            {/* Sitemap */}
+            <div className="space-y-4">
+              <img src="/a.png" alt="Logo" className="h-12" />
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:underline text-sm">Home</a></li>
+                <li><a href="#" className="hover:underline text-sm">About</a></li>
+                <li><a href="#" className="hover:underline text-sm">Services</a></li>
+                <li><a href="#" className="hover:underline text-sm">Contact</a></li>
+              </ul>
+            </div>
 
-      {/* Overlay Content */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-between">
-        {/* Footer Content */}
-        <div className="flex flex-col md:flex-row justify-evenly px-6 py-10 bg-opacity-70 text-white space-y-4 md:space-y-0">
-          {/* Column 1: Logo and Address */}
-          <div className="flex flex-col space-y-2 bg-black">
-            <img src="/logo.png" alt="Logo" className="h-12" />
-            <p className="text-sm">Amigoz AD ventures, F22 IT Plaza, Silicon oasis</p>
-            <p className="text-sm">Dubai, UAE</p>
-            <p className="text-sm">Phone: +971 50 977 2710 </p>
-            <p className="text-sm">Email: schedule@amigozme.com</p>
-          </div>
+            {/* Social Media Links */}
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold">Follow Us</h3>
+              <div className="flex flex-col space-x-4 justify-between">
+                <a href="https://facebook.com" className="text-sm hover:underline">Facebook</a>
+                <a href="https://twitter.com" className="text-sm hover:underline">Twitter</a>
+                <a href="https://instagram.com" className="text-sm hover:underline">Instagram</a>
+              </div>
+            </div>
 
-          {/* Column 2: Social Media Links */}
-          <div className="flex flex-col space-y-2 bg-black">
-            <h3 className="text-xl font-semibold">Follow Us</h3>
-            <div className="flex space-x-4">
-              <a href="https://facebook.com" className="text-lg">Facebook</a>
-              <a href="https://twitter.com" className="text-lg">Twitter</a>
-              <a href="https://instagram.com" className="text-lg">Instagram</a>
+            {/* Small Sentence */}
+            <div className="col-span-1 sm:col-span-2 lg:col-span-1 space-y-4">
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+              </p>
+            </div>
+
+            {/* All Rights Reserved */}
+            <div className="space-y-4">
+              <p className="text-sm">&copy; {new Date().getFullYear()} amigoz ad venture. All Rights Reserved.</p>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Footer Bottom Text */}
-        <div className="text-center py-4 bg-black bg-opacity-60 text-white">
-          &copy; {new Date().getFullYear()} Your Company. All Rights Reserved.
-        </div>
+      {/* Video Section */}
+      <div className="relative w-full h-[50vh]">
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/footer.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   );

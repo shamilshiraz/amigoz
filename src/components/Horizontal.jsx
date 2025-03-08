@@ -8,9 +8,6 @@ const Example = () => {
         <span className="font-semibold uppercase sticky top-[10vh] left-0 text-4xl">Featured projects</span>
       </div>
       <HorizontalScrollCarousel />
-      <div className="flex h-48 items-center justify-center">
-        <span className="font-semibold uppercase text-neutral-500"></span>
-      </div>
     </div>
   );
 };
@@ -24,7 +21,7 @@ const HorizontalScrollCarousel = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[180vh]">
+    <section ref={targetRef} className="relative h-[140vh]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
           {cards.map((card) => (
@@ -168,7 +165,8 @@ const cards = [
     id: 7,
     iframe: "https://drive.google.com/file/d/1h1yf955V2o9yZHik0Soe7hCqcG55EFPk/preview",
     thumbnail: "./bday.png",
-  }
+  },
+  
   
   
 ];

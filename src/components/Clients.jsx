@@ -27,10 +27,10 @@ const LargeClientScroller = () => {
   const [speed] = useState(30); // Animation speed in seconds
 
   return (
-<div id="contact" className="flex justify-center py-16 overflow-hidden" style={{ marginBottom: "20vh" }}>
-  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+<div id="contact" className="flex justify-center py-16 overflow-hidden " style={{ marginBottom: "20vh" }}>
+  <div className="max-w-8xl mx-auto px-4 sm:px-6 w-full">
     <div className="text-center mb-12">
-      <h2 className="text-4xl font-bold y-10">Our Trusted Clients</h2>
+      <h2 className="text-4xl font-bold">Our Trusted Clients</h2>
     </div>
 
     {/* First row - moves left to right */}
@@ -45,7 +45,7 @@ const LargeClientScroller = () => {
               <img
                 src={client.url}
                 alt={`Client ${client.id}`}
-                className="w-20 h-20 min-w-20 min-h-20 object-contain bg-white rounded-full  grayscale transition-all hover:grayscale-0"
+                className="w-20 h-20 min-w-20 min-h-20 object-contain bg-white rounded-full grayscale transition-all hover:grayscale-0"
               />
             </div>
           </div>
@@ -111,6 +111,7 @@ const LargeClientScroller = () => {
     }
   `}</style>
 </div>
+
 
 
   );

@@ -11,7 +11,7 @@ function Intro() {
         <img 
           src="./dubai.webp" 
           alt="Where creativity meets vision" 
-          className="w-full h-24 object-cover rounded"
+          className="w-full h-48 object-cover rounded"
         />
       </div>
       

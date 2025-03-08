@@ -99,9 +99,19 @@ function App() {
 
       {/* Background Image Div */}
       <div
-        className="fixed inset-0 w-[100vw] h-[100vh] bg-cover bg-center opacity-10 z-0"
+        className="fixed inset-0 w-[100vw] h-[100vh] bg-cover bg-center opacity-30 z-0"
         style={{ backgroundImage: "url('/scratches.png')" }}
-      ></div>
+      >  <video
+      className="absolute inset-0 w-full h-full object-cover z-0"
+      autoPlay
+      loop
+      muted
+      playsInline
+    >
+      <source src="/scratches.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
       {/* Custom Cursor */}
       <motion.div
