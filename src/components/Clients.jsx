@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const LargeClientScroller = () => {
-  // Array with id and url
+  // Array with id and url - unchanged from original
   const clients = [
     { id: 1, url: "https://upload.wikimedia.org/wikipedia/commons/2/25/HONOR_Logo.png" },
     { id: 2, url: "ms.jpg" },
@@ -23,94 +23,105 @@ const LargeClientScroller = () => {
     { id: 18, url: "./cca.jpg" },
   ];
 
-  // Split clients into multiple rows for better display
-  const [speed] = useState(30); // Animation speed in seconds
-
   return (
-<div id="contact" className="w-full py-16 overflow-hidden" style={{ marginBottom: "20vh" }}>
-  <div className="w-full">
-    <div className="text-center mb-12">
-      <h2 className="text-4xl font-bold">Our Trusted Clients</h2>
-    </div>
+    <div id="contact" className="w-full py-16 overflow-hidden" style={{ marginBottom: "20vh" }}>
+      <div className="w-full">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold">Our Trusted Clients</h2>
+        </div>
 
-    {/* First row - moves left to right */}
-    <div className="relative mb-12 overflow-hidden py-4 w-full">
-      <div className="client-scroll-1 flex space-x-6">
-        {[...clients.slice(0, 9), ...clients.slice(0, 9), ...clients.slice(0, 9)].map((client, index) => (
-          <div
-            key={`client-1-${index}`}
-            className="flex-none w-48 h-28 rounded-lg shadow-md flex items-center justify-center transition-all hover:shadow-lg"
-          >
-            <div className="text-center">
-              <img
-                src={client.url}
-                alt={`Client ${client.id}`}
-                className="w-20 h-20 min-w-20 min-h-20 object-contain bg-white rounded-full grayscale transition-all hover:grayscale-0"
-              />
+        {/* First row - moves left to right */}
+        <div className="relative mb-12 overflow-hidden py-4">
+          <div className="marquee">
+            <div className="marquee-content">
+              {/* Repeat the first half clients multiple times to ensure no gaps */}
+              {Array(4).fill().map((_, repeatIndex) => (
+                clients.slice(0, 9).map((client, index) => (
+                  <div key={`row1-${repeatIndex}-${index}`} className="marquee-item">
+                    <img 
+                      src={client.url} 
+                      alt={`Client ${client.id}`} 
+                      className="w-16 h-16 object-contain bg-white rounded-full grayscale hover:grayscale-0 transition-all"
+                    />
+                  </div>
+                ))
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
 
-    {/* Second row - moves right to left */}
-    <div className="relative mb-12 overflow-hidden py-4 w-full">
-      <div className="client-scroll-2 flex space-x-6">
-        {[...clients.slice(9), ...clients.slice(9), ...clients.slice(9)].map((client, index) => (
-          <div
-            key={`client-2-${index}`}
-            className="flex-none w-48 h-28 rounded-lg shadow-md flex items-center justify-center p-4 transition-all hover:shadow-lg"
-          >
-            <div className="text-center">
-              <img
-                src={client.url}
-                alt={`Client ${client.id}`}
-                className="w-20 h-20 min-w-20 min-h-20 object-contain bg-white rounded-full p-4 grayscale transition-all hover:grayscale-0"
-              />
+        {/* Second row - moves right to left */}
+        <div className="relative mb-12 overflow-hidden py-4">
+          <div className="marquee reverse">
+            <div className="marquee-content">
+              {/* Repeat the second half clients multiple times to ensure no gaps */}
+              {Array(4).fill().map((_, repeatIndex) => (
+                clients.slice(9).map((client, index) => (
+                  <div key={`row2-${repeatIndex}-${index}`} className="marquee-item">
+                    <img 
+                      src={client.url} 
+                      alt={`Client ${client.id}`} 
+                      className="w-16 h-16 object-contain bg-white rounded-full grayscale hover:grayscale-0 transition-all"
+                    />
+                  </div>
+                ))
+              ))}
             </div>
           </div>
-        ))}
+        </div>
       </div>
+
+      <style jsx>{`
+        .marquee {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .marquee-content {
+          display: flex;
+          animation: marquee 40s linear infinite;
+          width: max-content;
+        }
+
+        .reverse .marquee-content {
+          animation: marquee-reverse 40s linear infinite;
+        }
+
+        .marquee-item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 80px;
+          height: 80px;
+          flex-shrink: 0;
+          margin: 0 10px;
+        }
+
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-80px * 9 * 2 - 20px * 9 * 2));
+          }
+        }
+
+        @keyframes marquee-reverse {
+          0% {
+            transform: translateX(calc(-80px * 9 * 2 - 20px * 9 * 2));
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        .marquee:hover .marquee-content,
+        .reverse:hover .marquee-content {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
-  </div>
-
-  <style jsx>{`
-    @keyframes scrollLeft {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-33.33%);
-      }
-    }
-
-    @keyframes scrollRight {
-      0% {
-        transform: translateX(-33.33%);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
-
-    .client-scroll-1 {
-      display: flex;
-      width: max-content;
-      animation: scrollLeft 30s linear infinite;
-    }
-
-    .client-scroll-2 {
-      display: flex;
-      width: max-content;
-      animation: scrollRight 30s linear infinite;
-    }
-
-    .client-scroll-1:hover,
-    .client-scroll-2:hover {
-      animation-play-state: paused;
-    }
-  `}</style>
-</div>
   );
 };
 
