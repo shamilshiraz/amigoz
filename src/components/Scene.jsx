@@ -54,7 +54,7 @@ const InfiniteSlider = () => {
         className="fixed bottom-8 right-8 bg-white text-black p-3 rounded-full shadow-lg cursor-pointer hover:bg-gray-200 transition z-20"
         onClick={() => setIsChatOpen(true)}
       >
-        <MessageCircle size={24} />
+        <img src="./whatsapp.png" className='h-12 w-14 rounded-full' alt="" />
       </a>
 
       {/* Chat Popup */}
