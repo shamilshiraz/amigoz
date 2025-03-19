@@ -39,14 +39,6 @@ function Mos() {
             <div className="flex flex-col w-full justify-center items-center">
                 <p             data-aos="fade-up"  className='text-3xl sm:text-5xl text-center font-ed text-swblue sm:mt-[-300px] mt-[-220px]'>Bringing vision to life  <br /> One frame at a time </p>
                 <p className='text-sm text-center font-ita pt-[50px]'>Recreating craftsmanship</p>
-                            <motion.img src="roundedlogo.png"
-             className='h-[15vh] opacity-[0.5]  p-2' alt=""
-             animate={{rotate:360}}
-             transition={{
-                repeat:Infinity,
-                duration:3,
-                ease:'linear'
-             }} />
             </div>
     </div>
     <Footer/>
